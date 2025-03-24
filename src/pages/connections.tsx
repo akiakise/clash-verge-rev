@@ -53,11 +53,7 @@ const ConnectionsPage = () => {
 
   const orderOpts: Record<string, OrderFunc> = {
     Default: (list) =>
-      list.sort(
-        (a, b) =>
-          new Date(b.start || "0").getTime()! -
-          new Date(a.start || "0").getTime()!,
-      ),
+      list.sort((a, b) => b.curDownload! - a.curDownload!),
     "Upload Speed": (list) => list.sort((a, b) => b.curUpload! - a.curUpload!),
     "Download Speed": (list) =>
       list.sort((a, b) => b.curDownload! - a.curDownload!),
